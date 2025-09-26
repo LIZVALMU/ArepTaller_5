@@ -55,9 +55,34 @@ curl -X POST http://localhost:8080/api/properties \
 - Validación Jakarta
 - Frontend estático (Fetch API)
 
-## Próximo (Despliegue AWS)
+## Despliegue Local con Docker
 
-Se agregarán Dockerfiles y docker-compose para empaquetar el backend y la base de datos, además de instrucciones para desplegar contenedores en EC2 y RDS (o MySQL en otra instancia) conforme a los requerimientos.
+Compilar y levantar:
+
+```bash
+docker compose build
+docker compose up -d
+```
+
+API disponible en: <http://localhost:8080/api/properties>
+
+## Instrucciones Resumidas de Despliegue en AWS
+
+Lista de pasos AWS:
+
+- Crear instancia EC2 (Amazon Linux 2023 / t3.small) para backend.
+- Instalar Docker y docker compose plugin.
+- Crear instancia RDS MySQL (o segunda EC2 con MySQL) en subred privada.
+- Configurar Security Groups: permitir 3306 solo desde backend, 8080 abierto (o detrás de ALB).
+- Construir imagen y subir a Amazon ECR (o usar CI): `docker build`, `docker tag`, `docker push`.
+- Ejecutar backend en EC2: comando docker run con variables de entorno de la base de datos.
+- (Opcional) Servir frontend desde S3 + CloudFront o Nginx.
+- Monitoreo: CloudWatch Logs (log-driver awslogs) y métricas RDS.
+
+## Arquitectura (Resumen)
+
+Frontend (estático) -> Backend Spring Boot (EC2 / contenedor) -> MySQL (RDS)  
+Separación clara entre capa de presentación, lógica y persistencia.
 
 ## Autor
 
