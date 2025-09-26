@@ -1,0 +1,17 @@
+target/
+*.iml
+.idea/
+.classpath
+.project
+.settings/
+/.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+dependency-reduced-pom.xml
+*.log
+*.DS_Store
+node_modules/
+dist/
+frontend/dist/
+*.env
+/.azure/
+/.vscode/
