@@ -1,11 +1,6 @@
 # Sistema CRUD de Propiedades (AREP 2025)
 
-Autor: **Alison Valderrama**  
-Asignatura: **AREP**  
-Año: **2025**
-
 ---
-
 ## 1. Resumen del Proyecto
 
 Aplicación web para gestionar propiedades inmobiliarias (bienes raíces) que soporta:
@@ -261,8 +256,13 @@ spring.datasource.password=${DB_PASSWORD:changeme}
 * Tests automáticos CI (GitHub Actions) + Sonar.
 * Documentación OpenAPI (springdoc-openapi).
 * Paginación infinita en frontend.
-
 ---
+
+## Demo Funcional
+https://youtu.be/e-j5FhKqpPM
+
+
+
 
 ## 14. Autoría
 

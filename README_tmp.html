@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>README.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///r%3A/2.Travail/1.Enseignement/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css"><link rel="stylesheet" href="file:///d%3A/rdaros/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css">
+</head>
+
+<body>
+    <h1 id="sistema-crud-de-propiedades-arep-2025">Sistema CRUD de Propiedades (AREP 2025)</h1>
+<hr>
+<h2 id="1-resumen-del-proyecto">1. Resumen del Proyecto</h2>
+<p>Aplicación web para gestionar propiedades inmobiliarias (bienes raíces) que soporta:</p>
+<ul>
+<li>Crear, listar, consultar, actualizar y eliminar propiedades (CRUD completo).</li>
+<li>Paginación y filtros (dirección, rango de precio, rango de tamaño).</li>
+<li>Orden dinámico por cualquier campo (parámetro <code>sortBy</code>).</li>
+<li>Manejo global de errores y validaciones (Bean Validation / Jakarta).</li>
+<li>Frontend estático moderno (HTML + CSS + JS) con tema claro/oscuro.</li>
+<li>Backend listo para contenedorización y despliegue en AWS junto a MySQL (RDS).</li>
+</ul>
+<hr>
+<h2 id="2-estructura-del-repositorio">2. Estructura del Repositorio</h2>
+<pre class="hljs"><code><div>backend/                 Código Spring Boot (API REST)
+  pom.xml
+  src/main/java/com/arep/property/
+    PropertyCrudApplication.java
+    controller/ (REST + GlobalExceptionHandler)
+    model/ (Entidad JPA)
+    repository/ (JpaRepository + Specification)
+    service/ (Interfaces y lógica de negocio)
+frontend/                Interfaz estática (index.html, styles.css, script.js)
+docker-compose.yml       Orquestación local (MySQL + backend)
+backend/Dockerfile       Imagen del backend
+</div></code></pre>
+<hr>
+<h2 id="3-dise%C3%B1o-de-clases-backend">3. Diseño de Clases (Backend)</h2>
+<table>
+<thead>
+<tr>
+<th>Capa</th>
+<th>Clase</th>
+<th>Rol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aplicación</td>
+<td><code>PropertyCrudApplication</code></td>
+<td>Punto de entrada Spring Boot</td>
+</tr>
+<tr>
+<td>Modelo</td>
+<td><code>Property</code></td>
+<td>Entidad JPA (id, address, price, size, description)</td>
+</tr>
+<tr>
+<td>Repositorio</td>
+<td><code>PropertyRepository</code></td>
+<td>Extiende <code>JpaRepository</code> + <code>JpaSpecificationExecutor</code></td>
+</tr>
+<tr>
+<td>Servicio</td>
+<td><code>PropertyService</code> / <code>PropertyServiceImpl</code></td>
+<td>Lógica de negocio, filtros dinámicos (Specifications)</td>
+</tr>
+<tr>
+<td>Controlador</td>
+<td><code>PropertyController</code></td>
+<td>Endpoints REST CRUD + paginación/filtros/orden</td>
+</tr>
+<tr>
+<td>Manejo Errores</td>
+<td><code>GlobalExceptionHandler</code></td>
+<td>Captura validaciones y excepciones de negocio</td>
+</tr>
+</tbody>
+</table>
+<p>Diagrama simplificado (texto):</p>
+<pre class="hljs"><code><div>Controller -&gt; Service -&gt; Repository -&gt; DB (MySQL)
+            ↑            ↗
+   GlobalExceptionHandler (cross-cutting)
+</div></code></pre>
+<hr>
+<h2 id="4-modelo-de-datos">4. Modelo de Datos</h2>
+<p>Tabla: <code>properties</code></p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Restricciones</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>BIGINT (auto)</td>
+<td>PK, autoincrement</td>
+</tr>
+<tr>
+<td>address</td>
+<td>VARCHAR</td>
+<td>NOT NULL</td>
+</tr>
+<tr>
+<td>price</td>
+<td>DOUBLE</td>
+<td>&gt; 0, NOT NULL</td>
+</tr>
+<tr>
+<td>size</td>
+<td>DOUBLE</td>
+<td>&gt; 0, NOT NULL</td>
+</tr>
+<tr>
+<td>description</td>
+<td>VARCHAR(1000)</td>
+<td>Opcional</td>
+</tr>
+</tbody>
+</table>
+<p>Reglas de validación (Bean Validation):</p>
+<ul>
+<li><code>@NotBlank</code> en <code>address</code></li>
+<li><code>@Positive</code> y <code>@NotNull</code> en <code>price</code> y <code>size</code></li>
+<li><code>@Size(max=1000)</code> en <code>description</code></li>
+</ul>
+<hr>
+<h2 id="5-endpoints-rest">5. Endpoints REST</h2>
+<p>Base: <code>/api/properties</code></p>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Endpoint</th>
+<th>Descripción</th>
+<th>HTTP Status éxito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST</td>
+<td><code>/api/properties</code></td>
+<td>Crea una propiedad</td>
+<td>201 CREATED</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/properties</code></td>
+<td>Lista paginada con filtros</td>
+<td>200 OK</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/properties/{id}</code></td>
+<td>Consulta por ID</td>
+<td>200 / 404</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td><code>/api/properties/{id}</code></td>
+<td>Actualiza una propiedad</td>
+<td>200 OK</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>/api/properties/{id}</code></td>
+<td>Elimina una propiedad</td>
+<td>204 NO CONTENT</td>
+</tr>
+</tbody>
+</table>
+<h3 id="51-par%C3%A1metros-de-consulta-get-apiproperties">5.1 Parámetros de Consulta (GET /api/properties)</h3>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Tipo</th>
+<th>Opcional</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>address</td>
+<td>String</td>
+<td>Sí</td>
+<td><code>address=avenida</code></td>
+</tr>
+<tr>
+<td>minPrice</td>
+<td>Double</td>
+<td>Sí</td>
+<td><code>minPrice=100000</code></td>
+</tr>
+<tr>
+<td>maxPrice</td>
+<td>Double</td>
+<td>Sí</td>
+<td><code>maxPrice=500000</code></td>
+</tr>
+<tr>
+<td>minSize</td>
+<td>Double</td>
+<td>Sí</td>
+<td><code>minSize=60</code></td>
+</tr>
+<tr>
+<td>maxSize</td>
+<td>Double</td>
+<td>Sí</td>
+<td><code>maxSize=120</code></td>
+</tr>
+<tr>
+<td>page</td>
+<td>int</td>
+<td>Sí (def=0)</td>
+<td><code>page=0</code></td>
+</tr>
+<tr>
+<td>size</td>
+<td>int</td>
+<td>Sí (def=10)</td>
+<td><code>size=5</code></td>
+</tr>
+<tr>
+<td>sortBy</td>
+<td>String</td>
+<td>Sí (def=id)</td>
+<td><code>sortBy=price</code></td>
+</tr>
+<tr>
+<td>direction</td>
+<td>String</td>
+<td>Sí (def=asc)</td>
+<td><code>direction=desc</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="52-ejemplos-de-uso-curl">5.2 Ejemplos de Uso (curl)</h3>
+<p>Crear:</p>
+<pre class="hljs"><code><div>curl -X POST http://localhost:8080/api/properties \
+  -H <span class="hljs-string">"Content-Type: application/json"</span> \
+  -d <span class="hljs-string">'{"address":"Calle 123","price":150000,"size":80,"description":"Apto céntrico"}'</span>
+</div></code></pre>
+<p>Listar filtrando y ordenando:</p>
+<pre class="hljs"><code><div>curl <span class="hljs-string">"http://localhost:8080/api/properties?address=calle&amp;minPrice=100000&amp;maxPrice=300000&amp;sortBy=price&amp;direction=desc&amp;page=0&amp;size=5"</span>
+</div></code></pre>
+<p>Actualizar:</p>
+<pre class="hljs"><code><div>curl -X PUT http://localhost:8080/api/properties/1 \
+  -H <span class="hljs-string">"Content-Type: application/json"</span> \
+  -d <span class="hljs-string">'{"address":"Calle 123A","price":160000,"size":78,"description":"Reformado"}'</span>
+</div></code></pre>
+<p>Eliminar:</p>
+<pre class="hljs"><code><div>curl -X DELETE http://localhost:8080/api/properties/1
+</div></code></pre>
+<h3 id="53-respuestas-de-error-json-gen%C3%A9rico">5.3 Respuestas de Error (JSON genérico)</h3>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2025-09-25T12:00:00Z"</span>,
+  <span class="hljs-attr">"status"</span>: <span class="hljs-number">400</span>,
+  <span class="hljs-attr">"errors"</span>: {
+    <span class="hljs-attr">"price"</span>: <span class="hljs-string">"must be greater than 0"</span>
+  }
+}
+</div></code></pre>
+<hr>
+<h2 id="6-frontend">6. Frontend</h2>
+<p>Características principales:</p>
+<ul>
+<li>Diseño responsive con dos columnas (formulario/filtros + listado).</li>
+<li>Tema claro / oscuro con toggle persistente (localStorage).</li>
+<li>Animaciones suaves (hover, aparición de tarjetas, mensajes).</li>
+<li>Fetch API para CRUD asíncrono.</li>
+<li>Paginación dinámica y recarga parcial de tabla.</li>
+</ul>
+<h3 id="61-flujo-ui">6.1 Flujo UI</h3>
+<ol>
+<li>El usuario crea o edita mediante el formulario.</li>
+<li>Tras operación exitosa se muestra mensaje (auto-desvanecimiento).</li>
+<li>Tabla se actualiza sin recargar página.</li>
+<li>Filtros aplican query params a la API.</li>
+</ol>
+<hr>
+<h2 id="7-manejo-de-errores">7. Manejo de Errores</h2>
+<p><code>GlobalExceptionHandler</code> unifica:</p>
+<ul>
+<li>Validaciones (<code>MethodArgumentNotValidException</code>) ⇒ 400 con campo→mensaje.</li>
+<li><code>ResponseStatusException</code> ⇒ status personalizado.</li>
+<li>Excepciones genéricas ⇒ 500 con mensaje simple.</li>
+</ul>
+<hr>
+<h2 id="8-seguridad-y-buenas-pr%C3%A1cticas-pendiente--recomendado">8. Seguridad y Buenas Prácticas (Pendiente / Recomendado)</h2>
+<ul>
+<li>Externalizar credenciales DB (<code>DB_USER</code>, <code>DB_PASSWORD</code>).</li>
+<li>Añadir capa de autenticación (JWT) si se expone públicamente.</li>
+<li>Limitar CORS a dominios confiables en producción.</li>
+<li>Añadir rate limiting / logging estructurado.</li>
+</ul>
+<hr>
+<h2 id="9-tests-sugeridos">9. Tests (Sugeridos)</h2>
+<ul>
+<li>Unit: Service con repositorio mock (Mockito).</li>
+<li>Integración: Controlador con <code>@SpringBootTest</code> + <code>TestRestTemplate</code>.</li>
+<li>E2E opcional: Cypress / Playwright para UI.</li>
+</ul>
+<hr>
+<h2 id="10-despliegue-local">10. Despliegue Local</h2>
+<h3 id="101-requisitos">10.1 Requisitos</h3>
+<ul>
+<li>Java 17</li>
+<li>Maven 3.9+</li>
+<li>MySQL 8 ó Docker</li>
+</ul>
+<h3 id="102-ejecuci%C3%B3n-con-maven">10.2 Ejecución con Maven</h3>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> backend
+mvn spring-boot:run
+</div></code></pre>
+<h3 id="103-docker-compose">10.3 Docker Compose</h3>
+<pre class="hljs"><code><div>docker compose build
+docker compose up -d
+</div></code></pre>
+<p>API: <a href="http://localhost:8080/api/properties">http://localhost:8080/api/properties</a></p>
+<hr>
+<h2 id="11-despliegue-en-aws-resumen">11. Despliegue en AWS (Resumen)</h2>
+<ol>
+<li>RDS MySQL (subred privada).</li>
+<li>EC2 (backend) con SG que permita 8080 y salida a 3306.</li>
+<li>Construir y subir imagen a ECR.</li>
+<li>Ejecutar container con variables de entorno:</li>
+</ol>
+<pre class="hljs"><code><div>docker run -d -p 8080:8080 \
+  -e SPRING_DATASOURCE_URL=jdbc:mysql://&lt;rds-endpoint&gt;:3306/propertiesdb \
+  -e SPRING_DATASOURCE_USERNAME=&lt;user&gt; \
+  -e SPRING_DATASOURCE_PASSWORD=&lt;pass&gt; \
+  &lt;account&gt;.dkr.ecr.&lt;region&gt;.amazonaws.com/property-crud:latest
+</div></code></pre>
+<ol start="5">
+<li>(Opcional) S3 + CloudFront para servir <code>frontend/</code>.</li>
+<li>Monitoreo: CloudWatch Logs (driver awslogs) y métricas RDS.</li>
+</ol>
+<hr>
+<h2 id="12-variables-de-entorno-recomendadas">12. Variables de Entorno Recomendadas</h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DB_USER</td>
+<td>Usuario DB</td>
+<td>root</td>
+</tr>
+<tr>
+<td>DB_PASSWORD</td>
+<td>Password DB</td>
+<td>********</td>
+</tr>
+<tr>
+<td>SPRING_DATASOURCE_URL</td>
+<td>URL JDBC</td>
+<td>jdbc:mysql://host:3306/propertiesdb</td>
+</tr>
+<tr>
+<td>JAVA_OPTS</td>
+<td>Ajustes JVM</td>
+<td>-Xms256m -Xmx512m</td>
+</tr>
+</tbody>
+</table>
+<p>En <code>application.properties</code> se puede usar:</p>
+<pre class="hljs"><code><div><span class="hljs-meta">spring.datasource.username</span>=<span class="hljs-string">${DB_USER:root}</span>
+<span class="hljs-meta">spring.datasource.password</span>=<span class="hljs-string">${DB_PASSWORD:changeme}</span>
+</div></code></pre>
+<hr>
+<h2 id="13-mejoras-futuras">13. Mejoras Futuras</h2>
+<ul>
+<li>Exportar listado a CSV / Excel.</li>
+<li>Cache de lecturas (Caffeine / Redis).</li>
+<li>Tests automáticos CI (GitHub Actions) + Sonar.</li>
+<li>Documentación OpenAPI (springdoc-openapi).</li>
+<li>Paginación infinita en frontend.</li>
+</ul>
+<hr>
+<h2 id="demo-funcional">Demo Funcional</h2>
+<p>https://youtu.be/e-j5FhKqpPM</p>
+<h2 id="14-autor%C3%ADa">14. Autoría</h2>
+<p>Proyecto desarrollado por <strong>Alison Valderrama</strong> para la asignatura <strong>AREP (2025)</strong>.</p>
+<hr>
+<h2 id="15-licencia">15. Licencia</h2>
+<p>Uso académico. Extender a MIT u otra licencia si se publica públicamente.</p>
+
+</body>
+
+</html>
