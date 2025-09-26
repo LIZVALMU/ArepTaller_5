@@ -1,0 +1,11 @@
+body { font-family: Arial, sans-serif; margin: 20px; }
+h1 { color: #2c3e50; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { border: 1px solid #ccc; padding: 6px; font-size: 14px; }
+th { background: #f4f4f4; }
+tr:nth-child(even) { background: #fafafa; }
+#message { margin-top: 10px; font-weight: bold; }
+form input, form textarea { width: 100%; }
+button { cursor: pointer; }
+.success { color: green; }
+.error { color: red; }
