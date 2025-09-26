@@ -1,59 +1,121 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <title>Gestión de Propiedades</title>
-    <link rel="stylesheet" href="styles.css" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Gestión de Propiedades</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<h1>Sistema CRUD de Propiedades</h1>
-<section id="form-section">
-    <h2 id="form-title">Crear Propiedad</h2>
-    <form id="property-form">
-        <input type="hidden" id="property-id" />
-        <label>Dirección *<br><input type="text" id="address" required></label><br>
-        <label>Precio *<br><input type="number" id="price" min="1" step="0.01" required></label><br>
-        <label>Tamaño (m²) *<br><input type="number" id="size" min="1" step="0.01" required></label><br>
-        <label>Descripción<br><textarea id="description" maxlength="1000"></textarea></label><br>
-        <button type="submit" id="submit-btn">Guardar</button>
-        <button type="button" id="cancel-edit" style="display:none">Cancelar</button>
-    </form>
-    <div id="message"></div>
-</section>
-
-<section id="filters">
-    <h2>Buscar / Filtrar</h2>
-    <input type="text" id="filter-address" placeholder="Dirección" />
-    <input type="number" id="filter-minPrice" placeholder="Precio mín" />
-    <input type="number" id="filter-maxPrice" placeholder="Precio máx" />
-    <input type="number" id="filter-minSize" placeholder="Tamaño mín" />
-    <input type="number" id="filter-maxSize" placeholder="Tamaño máx" />
-    <button id="apply-filters">Aplicar</button>
-    <button id="clear-filters">Limpiar</button>
-</section>
-
-<section id="list-section">
-    <h2>Listado de Propiedades</h2>
-    <table id="properties-table">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Dirección</th>
-            <th>Precio</th>
-            <th>Tamaño</th>
-            <th>Descripción</th>
-            <th>Acciones</th>
-        </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-    <div id="pagination">
-        <button id="prev-page">Anterior</button>
-        <span id="page-info"></span>
-        <button id="next-page">Siguiente</button>
+<header class="app-header">
+    <div class="branding">
+        <h1>Sistema CRUD de Propiedades</h1>
+        <p class="tagline">Gestión ágil de inmuebles - AREP 2025</p>
     </div>
-</section>
+    <div class="header-actions">
+        <button id="theme-toggle" class="btn ghost" title="Cambiar tema">🌓</button>
+    </div>
+</header>
+
+<main class="layout">
+    <div class="left-column">
+        <section id="form-section" class="card">
+                <div class="card-header">
+                        <h2 id="form-title" class="card-title">Crear Propiedad</h2>
+                </div>
+                <form id="property-form" class="form-grid">
+                        <input type="hidden" id="property-id" />
+                        <div class="form-field">
+                            <label for="address">Dirección *</label>
+                            <input type="text" id="address" required placeholder="Ej: Calle 123 #45-67" />
+                        </div>
+                        <div class="form-field">
+                            <label for="price">Precio *</label>
+                            <input type="number" id="price" min="1" step="0.01" required placeholder="Ej: 250000" />
+                        </div>
+                        <div class="form-field">
+                            <label for="size">Tamaño (m²) *</label>
+                            <input type="number" id="size" min="1" step="0.01" required placeholder="Ej: 80" />
+                        </div>
+                        <div class="form-field full">
+                            <label for="description">Descripción</label>
+                            <textarea id="description" maxlength="1000" rows="3" placeholder="Detalles, estado, características..."></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn primary" id="submit-btn">Guardar</button>
+                            <button type="button" class="btn secondary" id="cancel-edit" style="display:none">Cancelar</button>
+                        </div>
+                </form>
+                <div id="message" class="message"></div>
+        </section>
+
+        <section id="filters" class="card">
+                <div class="card-header">
+                        <h2 class="card-title">Buscar / Filtrar</h2>
+                </div>
+                <div class="filters-grid">
+                        <input type="text" id="filter-address" placeholder="Dirección" />
+                        <input type="number" id="filter-minPrice" placeholder="Precio mín" />
+                        <input type="number" id="filter-maxPrice" placeholder="Precio máx" />
+                        <input type="number" id="filter-minSize" placeholder="Tamaño mín" />
+                        <input type="number" id="filter-maxSize" placeholder="Tamaño máx" />
+                        <div class="filter-actions">
+                                <button id="apply-filters" class="btn primary sm">Aplicar</button>
+                                <button id="clear-filters" class="btn danger ghost sm">Limpiar</button>
+                        </div>
+                </div>
+        </section>
+    </div>
+
+    <div class="right-column">
+        <section id="list-section" class="card stretch">
+                <div class="card-header between">
+                    <h2 class="card-title">Listado de Propiedades</h2>
+                    <div class="table-tools">
+                        <span id="page-info" class="badge">Página 1</span>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table id="properties-table" class="data-table">
+                            <thead>
+                            <tr>
+                                    <th>ID</th>
+                                    <th>Dirección</th>
+                                    <th>Precio</th>
+                                    <th>Tamaño</th>
+                                    <th>Descripción</th>
+                                    <th>Acciones</th>
+                            </tr>
+                            </thead>
+                            <tbody></tbody>
+                    </table>
+                </div>
+                <div id="pagination" class="pagination">
+                        <button id="prev-page" class="btn secondary sm">Anterior</button>
+                        <button id="next-page" class="btn secondary sm">Siguiente</button>
+                </div>
+        </section>
+    </div>
+</main>
+
+<footer class="app-footer">
+    <p>AREP 2025 - Alison Valderrama</p>
+</footer>
 
 <script src="script.js"></script>
+<script>
+    // Tema oscuro / claro
+    const toggle = document.getElementById('theme-toggle');
+    const stored = localStorage.getItem('theme');
+    if(stored){ document.documentElement.setAttribute('data-theme', stored); }
+    toggle.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', current);
+        localStorage.setItem('theme', current);
+    });
+</script>
 </body>
 </html>

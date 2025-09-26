@@ -160,8 +160,8 @@ async function deleteProperty(id) {
 
 function showMessage(msg, error = false) {
   messageDiv.textContent = msg;
-  messageDiv.className = error ? 'error' : 'success';
-  setTimeout(() => { messageDiv.textContent = ''; messageDiv.className = ''; }, 4000);
+  messageDiv.className = `message active ${error ? 'error' : 'success'}`;
+  setTimeout(() => { messageDiv.textContent = ''; messageDiv.className = 'message'; }, 4200);
 }
 
 function escapeHtml(text) {
